@@ -2,5 +2,9 @@
 name = "guessing_game"
 version = "0.1.0"
 edition = "2021"
+authors = ["tinoSibz"]
+rust-version = "1.79"
+description = "A simple game to guess the random number between 1 and 100"
+readme = "README.md"
 
 [dependencies]
