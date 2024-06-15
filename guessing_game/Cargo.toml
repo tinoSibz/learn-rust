@@ -8,3 +8,5 @@ description = "A simple game to guess the random number between 1 and 100"
 readme = "README.md"
 
 [dependencies]
+colored = "2.1.0"
+rand = "0.8.5"
