@@ -12,6 +12,53 @@ This project is a modified version of the guessing game from Chapter 2 of "The R
 
 ## Game Mechanics
 
+### High-Level Flow
+```mermaid
+graph LR
+    A[Start] --> B[Choose Game Mode]
+    B --> C[Generate Secret Number]
+    C --> D{Game Mode}
+    D -->|1| E[Human Player]
+    D -->|2| F[Computer Player]
+    D -->|_ | G[Invalid Mode]
+    E --> H[Human Player Logic]
+    F --> I[Computer Player Logic]
+    H --> J[End]
+    I --> J[End]
+    G --> J[End]
+```
+
+### Human Player Logic
+```mermaid
+graph TD
+    A[Start] --> B[Read User Guess]
+    B --> C{Valid Guess?}
+    C -- No --> B
+    C -- Yes --> D[Compare Guess with Secret Number]
+    D -- Less --> E["Too small!"]
+    D -- Greater--> F["Too big!"]
+    D -- Equal --> G["Win"]
+    E --> B
+    F --> B
+    G --> H[End]
+```
+
+### Computer Player Logic
+```mermaid
+graph TD
+    A[Start] --> B[Initialize Bounds]
+    B --> C[Binary Search: Calculate Guess]
+    C --> D{Guess Correct?}
+    D -- No --> E[Compare Guess with Secret Number]
+    E -- Less --> F["Too small!"; Adjust Lower Bound]
+    E -- Greater --> G["Too big!"; Adjust Upper Bound]
+    E -- Equal --> H["Computer Wins!"]
+    F --> C
+    G --> C
+    H --> I[End]
+    D -- Yes --> I[End]
+```
+
 
 ## Installation
 1. Ensure you are in the `guessing_game` directory:
