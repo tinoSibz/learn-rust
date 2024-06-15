@@ -80,7 +80,7 @@ fn computer_player(secret_number: u32) {
         attempts += 1;
 
         // Convert guess string to u32
-        let mut guess: u32 = binary_search(low, high);
+        let guess = binary_search(low, high);
         println!("Computer guessed: {guess}");
 
         match guess.cmp(&secret_number){
